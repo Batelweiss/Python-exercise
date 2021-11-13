@@ -149,17 +149,30 @@ for key in d:
 
 # Question 4:
 text = open("TText.txt", "r")
+
+fileContext = text.read()
+splitFile = fileContext.split('.')
 d = dict()
-for line in text:
-     d[line] = len(line.split())
-x = 0
-for key in d:
-    x = x + d[key]
-z = d.values()
-Maximum_length = max(z)
-Average = x /(len(d) - 1)
-print("4.a. Average sentence length in text: ", Average)
-print("4.b. Maximum sentence length in text: ", Maximum_length)
+sumOfAllLinesLength = 0
+maxLength = 0
+for i, value in enumerate(splitFile):
+    length = len(value.split())
+    sumOfAllLinesLength += length
+    if length > maxLength:
+        maxLength = length
+print("max length", maxLength)
+print("avg", sumOfAllLinesLength / len(splitFile))
+
+# for index, line in enumerate(text):   
+#      d[index] = len(line.split())
+# sumOfAllLinesLength = 0
+# for key in d:
+#     sumOfAllLinesLength = sumOfAllLinesLength + d[key]
+# z = d.values()
+# Maximum_length = max(z)
+# Average = sumOfAllLinesLength / (len(d))
+# print("4.a. Average sentence length in text: ", Average)
+# print("4.b. Maximum sentence length in text: ", Maximum_length)
 
 # Question 8:
 print("8. is written here in a comment. It works at GDB Online")
